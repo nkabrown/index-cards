@@ -1,7 +1,7 @@
-<div class="card">
+<%= content_tag_for :div, card do %>
   <div class="header">
     <span class="nav"><%= link_to "x", project_card_path(@project, card), method: :delete, remote: true %></span>
-    <h3><%= best_in_place card, :title, :type => :input, url: project_card_path(card.project, card) %></h3>
+    <h3><%= best_in_place card, :title, :as => :input, url: project_card_path(card.project, card) %></h3>
    </div>
-   <p><%= best_in_place card, :body, :type => :textarea, url: project_card_path(card.project, card) %></p>
-</div>
+   <p><%= best_in_place card, :body, :as => :textarea, url: project_card_path(card.project, card) %></p>
+<% end %>

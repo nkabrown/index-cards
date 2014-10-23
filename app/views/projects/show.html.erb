@@ -1,5 +1,3 @@
-<div id="board">
-  <% @project.cards.each do |card| %>
+<div id="board" data-update-url="<%= sort_project_cards_path(@project) %>">
     <%= render partial: "cards/card", collection: @project.cards %>
-  <% end %>
 </div>

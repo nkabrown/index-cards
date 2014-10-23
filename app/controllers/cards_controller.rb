@@ -34,4 +34,13 @@ class CardsController < ApplicationController
     end
   end
 
+  def sort
+    cards = params[:card]
+    cards.each.with_index do |card, index|
+      Card.find(card).update(position: (index + 1))
+    end
+    respond_to do |format|
+      format.js { head :no_content}
+    end
+  end
 end
