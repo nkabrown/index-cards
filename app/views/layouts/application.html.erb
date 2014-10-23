@@ -7,8 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= flash[:notice] if flash[:notice] %>
-  <%= flash[:alert] if flash[:alert] %>
+  <header>
+    <nav>
+      <% if current_user %>
+        <%= link_to "Sign-Out", destroy_user_session_path, method: :delete, class: :button %> |
+        <%= link_to "New Project", projects_path, method: :post, class: :button %>
+      <% else %>
+        <%= link_to "Sign-In", new_user_session_path, class: :button %> |
+        <%= link_to "Sign-Up", new_user_registration_path, class: :button %>
+      <% end %>
+    </nav>
+    <% if current_user %>
+      <h1><%= "Hello #{current_user.name}" %></h1>
+    <% else %>
+      <h1>Cards</h1>
+    <% end %>
+  </header>
+  <div><%= flash[:notice] if flash[:notice] %></div>
+  <div><%= flash[:alert] if flash[:alert] %></div>
 <%= yield %>
 
 </body>
