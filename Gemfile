@@ -33,6 +33,8 @@ gem 'best_in_place'
 
 gem 'jquery-ui-rails'
 
+gem 'newrelic_rpm'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
